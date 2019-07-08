@@ -92,3 +92,17 @@ export class Employee{
         <td>{{data.empjoining}}</td>
     </tr>
 </table>
+
+
+
+
+
+
+
+
+
+
+
+ sortDate():any{
+        this.empall=this.empall.sort((a:any,b:any)=>new Date(b.empjoining).getTime()-new Date(a.empjoining).getTime()) 
+    }
