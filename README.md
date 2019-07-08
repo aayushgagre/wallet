@@ -11,20 +11,62 @@
 
 
 
-public static boolean validateDesignation(double salary, String desig)
-	{
-		if((salary>5000 && salary <20000) && (desig.equalsIgnoreCase("system associate")))
-			return true;
-		
-		if((salary>=20000 && salary<40000) && desig.equalsIgnoreCase("programmer"))
-			return true;
-		
-		if((salary>=40000) && desig.equalsIgnoreCase("Manager"))
-			return true;
-		
-		if(salary<5000 && desig.equalsIgnoreCase("clerk"))
-			return true;
-		
-		else
-			return false;
-	}
+import {Component} from '@angular/core';
+
+@Component({
+    selector:'add-emp',
+    templateUrl:'app.emp.html'
+
+})
+
+export class Employee{
+    empId:number;
+    empName:string;
+    empSalary:number
+    empDepartment:string
+    empjoining:string   
+
+    empall:any=[
+        {empId:1001,empName:"ABCD",empSalary:3334.58,empDepartment:"Java",empjoining:'6/12/2014'},
+        {empId:1002,empName:"ABC",empSalary:1000.45,empDepartment:"C",empjoining:'6/12/2014'},
+        {empId:1003,empName:"AB",empSalary:1254.65,empDepartment:"Testing",empjoining:'6/12/2014'},
+        {empId:1004,empName:"A",empSalary:3589.45,empDepartment:"Sap",empjoining:'6/12/2014'},
+        {empId:1006,empName:"BCD",empSalary:4521.25,empDepartment:"Core Java",empjoining:'6/12/2014'},
+        {empId:1007,empName:"CD",empSalary:4289.13,empDepartment:"Testing",empjoining:'6/12/2014'},
+        {empId:1005,empName:"D",empSalary:8965.74,empDepartment:"Sap",empjoining:'6/12/2014'},
+        {empId:1010,empName:"AD",empSalary:7544.99,empDepartment:".net",empjoining:'6/12/2014'},
+        {empId:1009,empName:"BC",empSalary:3698.58,empDepartment:"BI",empjoining:'6/12/2014'}
+    ];
+
+    sortId():any{
+        this.empall.sort(function(a,b):any{
+            if((a.empId-b.empId)>0) return 1;
+            else if((a.empId-b.empId)<0) return -1;
+            else return 0;
+        })
+    }
+
+    sortName():any{
+        this.empall.sort(function(a,b):any{
+            if(a.empName.toLowerCase()>b.empName.toLowerCase()) return 1;
+            else if(a.empName.toLowerCase()<b.empName.toLowerCase()) return -1;
+            else return 0;
+        })
+    }
+
+    sortSalary():any{
+        this.empall.sort(function(a,b):any{
+            if((a.empSalary-b.empSalary)>0) return 1;
+            else if((a.empSalary-b.empSalary)<0) return -1;
+            else return 0;
+        })
+    }
+
+    sortDepartment():any{
+        this.empall.sort(function(a,b):any{
+            if(a.empDepartment.toLowerCase()>b.empDepartment.toLowerCase()) return 1;
+            else if(a.empDepartment.toLowerCase()<b.empDepartment.toLowerCase()) return -1;
+            else return 0;
+        })
+    }
+}
