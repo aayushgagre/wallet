@@ -70,3 +70,25 @@ export class Employee{
         })
     }
 }
+
+
+
+
+
+<h2>Show all Employee</h2>
+<table border="1">
+    <tr>
+        <th><a href="#" (click)="sortId()">ID</a></th>
+        <th><a href="#" (click)="sortName()">Name</a></th>
+        <th><a href="#" (click)="sortSalary()">Salary</a></th>
+        <th><a href="#" (click)="sortDepartment()">Department</a></th>
+        <th><a href="#" (click)="sortDate()">Date</a></th>
+    </tr>
+    <tr *ngFor="let data of empall">
+        <td>{{data.empId}}</td>
+        <td>{{data.empName}}</td>
+        <td>{{data.empSalary}}</td>
+        <td>{{data.empDepartment}}</td>
+        <td>{{data.empjoining}}</td>
+    </tr>
+</table>
